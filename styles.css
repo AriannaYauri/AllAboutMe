@@ -1,11 +1,16 @@
-
 header {
     background: hsl(300, 18%, 97%);
     padding: 20px 0;
 }
 
+header .containerheader {
+    max-width: 1200px; /* Ajusta el tamaño del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 20px; /* Agrega un poco de padding lateral si es necesario */
+}
+
 header nav ul {
-    
+    display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
@@ -22,7 +27,6 @@ header a {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
-   
     padding: 10px 0;
 }
 
@@ -35,11 +39,12 @@ header .logo a {
     background-image: url("logo.png");
     background-size: 100px;
     background-repeat: no-repeat;
-  
+    display: inline-block;
     height: 80px;
     text-indent: -99999999px;
     width: 100px;
 }
+
 
 
         body {
@@ -155,32 +160,7 @@ header .logo a {
             text-indent:2pm;
         }
         
-        .panels-section { /* Fondo para los paneles hsitoria recomendaciones */
-            background: rgb(230, 172, 202);
-            padding: 20px;
-            text-align: center;
-            flex-wrap:wrap;
-            justify-content:center;
-    
-        }
-        
-        /* Estilos para los paneles individuales */
-        .panel {
-            margin: 0 10px;
-            padding: 10px;
-            background: rgb(255, 222, 228);
-            border-radius: 5px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        
-        .panel a { /* letra hsitoria recomendaciomnes */
-            color: rgb(211, 123, 123);
-            text-decoration: none;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 18px;
-        }
+       
 
         .imagen-index{
             max-width:400px;
@@ -189,9 +169,43 @@ header .logo a {
 
         .imagen-index1{
             max-width:400px;
-            max-height: 400px;
+            max-height: 300px;
         }
-
+        .panels-section { /* Fondo para los paneles hsitoria recomendaciones */
+            background: rgb(230, 172, 202);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .panels-section .containerpanel {
+            max-width: 1200px; /* Ajusta el tamaño del contenedor */
+            margin: 0 auto; /* Centra el contenedor */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .panel {
+            margin: 10px; /* Ajustado para crear espacio entre los paneles */
+            padding: 10px;
+            background: rgb(255, 222, 228);
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s;
+            width: 200px; /* Ajusta el ancho de los paneles */
+        }
+        
+        .panel a { /* Letra de los enlaces */
+            color: rgb(211, 123, 123);
+            text-decoration: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+        }
+        
+        .panel:hover {
+            transform: translateY(-10px);
+        }
+        
 
 
         * {
