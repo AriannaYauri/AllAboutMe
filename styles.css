@@ -3,11 +3,6 @@ header {
     padding: 20px 0;
 }
 
-header .containerheader {
-    max-width: 1200px; /* Ajusta el tamaño del contenedor */
-    margin: 0 auto; /* Centra el contenedor */
-    padding: 0 20px; /* Agrega un poco de padding lateral si es necesario */
-}
 
 header nav ul {
     display: flex;
@@ -34,14 +29,16 @@ header .logo {
     flex: 1.5; 
     text-align: center;
 }
+.imagenlogo{
+    max-width:100px;
+    max-height:80px;
+}
 
 header .logo a {
-    background-image: url("logo.png");
     background-size: 100px;
     background-repeat: no-repeat;
     display: inline-block;
     height: 80px;
-    text-indent: -99999999px;
     width: 100px;
 }
 
@@ -118,6 +115,7 @@ header .logo a {
             height: 100%;
             object-fit: cover;
         }
+
         
         .footer-box {
             display: flex;
