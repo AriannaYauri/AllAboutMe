@@ -35,25 +35,14 @@ header .logo {
 
 header .logo a {
     background: url("logo.png") no-repeat center;
-    background-size: contain; /* Asegúrate de que la imagen se ajuste al contenedor */
-    display: block;
-    height: 80px;
+    background-size: contain; /* Asegúrate de que la imagen se ajuste al contenedor, quiete esto display: block; */
+     height: 80px;
     width: 100px;
     text-indent: -9999px; /* Oculta el texto para el logo */
     overflow: hidden; /* Asegúrate de que el texto no se desborde */
 }
 
 /* Opcional: Ajuste para dispositivos móviles */
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column; /* Cambia la dirección del flex en pantallas pequeñas */
-    }
-
-    header .logo {
-        margin-bottom: 10px; /* Espaciado en dispositivos móviles */
-    }
-}
-
 
         body {
             background: rgb(255, 222, 228);
@@ -167,18 +156,7 @@ header .logo a {
             color:rgb(200, 79, 99);
             text-indent:2pm;
         }
-        
-        .panels-section { /* Fondo para los paneles hsitoria recomendaciones */
-            background: rgb(230, 172, 202);
-            padding: 20px;
-            display: flex;
-            flex-direction: row;
-            text-align: center;
-            flex-wrap:wrap;
-            justify-content:center;
     
-        }
-        
         
 
         .imagen-index{
@@ -205,7 +183,7 @@ header .logo a {
         }
         
         .panel {
-            display: inline-block; /* Permite que los elementos se alineen horizontalmente */
+            /* Permite que los elementos se alineen horizontalmente */
             margin: 0 10px;
             padding: 10px;
             background: rgb(255, 222, 228);
