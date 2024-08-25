@@ -4,7 +4,7 @@ header {
 }
 
 header .containerindex {
-    width:100%; /* Define el tamaño máximo del contenedor */
+    max-width:3000px ; /* Define el tamaño máximo del contenedor */
     
    
 }
@@ -180,7 +180,7 @@ header .logo a img {
         }
         
         .panels-section .containerinicio {
-            width:100%; /* Ajusta el tamaño máximo del contenedor */
+            max-width:3000px; /* Ajusta el tamaño máximo del contenedor */
            
              /* Añade espacio lateral si es necesario */
         }
@@ -190,6 +190,7 @@ header .logo a img {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
         }
         
         .panel {
