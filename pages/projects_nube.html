@@ -8,15 +8,19 @@
   </head>
   <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-            
-                <li class="logo"><a href="../index.html">All About Me</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-       
+        <div class="containerindex">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="logo">
+                        <a href="index.html">
+                            <img src="logo.png" alt="All About Me Logo">
+                        </a>
+                    </li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     
@@ -33,16 +37,16 @@
     <div class="contenultra">
         <div class="barra">
             <h1 class="titulo1H">All About Me - Blog</h1>
-            <h2 class="titulo2H">Un poco sobre mis miniproyectos</h2>
+            <h2 class="titulo2H">Miniproyectos</h2>
         </div>
 
         <div class="centro">
             <br>
         <p><b>COMO SUBIR DATOS A LA NUBE</b></p>
-        <p>Soy nueva en esto, hace menos de un mes me metí al mundo del IoT, así que con respecto a esto se lo básico
-            pero comodicen, por algo se empieza, usaremos FIREBASE,en esta ocasión voy a ir señalando los pasos 
+        <p>Soy nueva en esto, hace menos de un mes me metí al mundo del IoT, así que con respecto a esto sé lo básico
+            pero como dicen, por algo se empieza, usaremos FIREBASE,en esta ocasión voy a ir señalando los pasos 
             , nuestro ejemplo será un sensor de humedad y temperatura que se irá actulizando; básicamente crearemos
-            una página simple pero dinámica. El diseño está en ti y como se adecue mejor a tu proyecto. Creditos al 
+            una página simple pero dinámica. El diseño está en ti y como se adecue mejor a tu proyecto. Créditos al 
             Laboratorio de Innovación, donde aprendí sobre esta forma de subir datos, te recomiendo seguirlos en sus redes.
         </p>
         </div>
@@ -56,7 +60,7 @@
             <p><li><a href="projects_ultrasonico.html">Como usar un sensor ultrasónico</a></li></p><br>
             <p><li><a href="projects_irrigacion.html">Sistema de irrigación</a></li></p><br>
             <p><li><a href="projects_led.html">Aprendiendo más sobre leds</a></li></p><br>
-            <p><li><a href="projects_openVC.html">Descubriendo el mundo de openVC</a></li></p><br>
+            <p><li><a href="projects_openVC.html">Descubriendo el mundo de openCV</a></li></p><br>
             
             
         </ul>
@@ -83,8 +87,8 @@
         <p>
             2.Ejecuta los siguientes comandos en la terminal de VScode:<br>
             -npm install -g npm@latest<br>
-            -npm install -g npm@latest<br>
-            -npm install -g npm@latest<br>
+            -npm -g install firebase-tools<br>
+            -firebase --version<br>
         </p>
         <p>
             3.Crea una carpeta en tu computadora
@@ -92,7 +96,7 @@
         <p>
             4.Iniciamos sesión, en la terinal escribe: <br>
             -firebase login<br>
-            -Ingresa tu cuenta de google con la que creatse el proyecto en Firebase al inicio<br>
+            -Ingresa a tu cuenta de google con la que creatse el proyecto en Firebase al inicio<br>
         </p>
    
 
@@ -109,7 +113,7 @@
                 3.Selecciona: Use an existing project<br>
             </p>
             <p>
-                4.Selecciona: Use an existing project<br>
+                4.Seleccionamos el archivo predeterminado <br>
             </p>
             <p>
                 5.Coloca Sí para directorio público<br>
@@ -124,7 +128,7 @@
         </div>  
         <div class="piedepaginaultra">
         <p><b>CÓDIGO ATRDUINO</b></p>
-        <p>#include <Arduino.h>
+        <pre><code>#include <Arduino.h>
             #if defined(ESP32) || defined(ARDUINO_RASPBERRY_PI_PICO_W)
             #include <WiFi.h>
             #elif defined(ESP8266)
@@ -229,6 +233,8 @@
                         printError(client.lastError().code(), client.lastError().message());
                 }
             }
+        </code>
+        </pre>
         </p>
        
 
