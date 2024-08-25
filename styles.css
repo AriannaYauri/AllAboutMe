@@ -40,6 +40,13 @@ header .logo a {
     text-indent: -99999999px;
     width: 100px;
 }
+header a:hover,
+header .logo a:hover {
+    -webkit-transform: scale(1.1); /* Añade prefijo webkit para iOS */
+    -webkit-transition: -webkit-transform 0.3s ease-in-out; /* Añade prefijo webkit para transición */
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.1);
+}
 
         body {
             background: rgb(255, 222, 228);
@@ -176,6 +183,7 @@ header .logo a {
             transition: all 0.3s;
         }
         .panel:hover{
+            -webkit-transform: translateY(-10px);
             transform: translateY(-10px);
         }
         
