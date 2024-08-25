@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All About Me</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            
+                <li class="logo"><a href="../index.html">All About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    
+    
+    
+    <section class="panels-section">
+        <div class="panel"><a href="history.html">Historia</a></div>
+        <div class="panel"><a href="recomendaciones.html">Recomendaciones</a></div>
+        <div class="panel"><a href="photos.html">Photos</a></div>
+        <div class="panel"><a href="projects.html">Projects</a></div>
+        <div class="panel"><a href="Favorities.html">Favoritos</a></div>
+    </section>
+
+    
+    <div class="contenultra">
+        <div class="barra">
+            <h1 class="titulo1H">All About Me - Blog</h1>
+            <h2 class="titulo2H">Un poco sobre mis miniproyectos</h2>
+        </div>
+
+        <div class="centro">
+            <br>
+        <p><b>COMO SUBIR DATOS A LA NUBE</b></p>
+        <p>Soy nueva en esto, hace menos de un mes me metí al mundo del IoT, así que con respecto a esto se lo básico
+            pero comodicen, por algo se empieza, usaremos FIREBASE,en esta ocasión voy a ir señalando los pasos 
+            , nuestro ejemplo será un sensor de humedad y temperatura que se irá actulizando; básicamente crearemos
+            una página simple pero dinámica. El diseño está en ti y como se adecue mejor a tu proyecto. Creditos al 
+            Laboratorio de Innovación, donde aprendí sobre esta forma de subir datos, te recomiendo seguirlos en sus redes.
+        </p>
+        </div>
+        <div class="slidebar">
+            <br>
+            <br>
+            <b><li></li><a href="projects.html">PROYECTOS Y TUTORIALES</a></li></b>
+            <br><br><br>
+         <ul class="project-links">
+            <p><li><a href="projects_nube.html">Como subir datos a la nube</a></li></p><br>
+            <p><li><a href="projects_ultrasonico.html">Como usar un sensor ultrasónico</a></li></p><br>
+            <p><li><a href="projects_irrigacion.html">Sistema de irrigación</a></li></p><br>
+            <p><li><a href="projects_led.html">Aprendiendo más sobre leds</a></li></p><br>
+            <p><li><a href="projects_openVC.html">Descubriendo el mundo de openVC</a></li></p><br>
+            
+            
+        </ul>
+    
+
+        </div>  
+        <div class="contenido1">
+            <p><b>RECURSOS</b></p> 
+            <p>
+            -Usaremos FIREBASE (debes crear un prooyecto ahí)
+            -Arduino IDE
+            </p> 
+            <p><b>LIBRERÍAS A INSTALAR</b></p>
+            <p>-Asegurate de tener la librería WiFi en el arduino IDE</p>
+        
+            
+
+        </div>  
+        <div class="contenido2">
+        <p><b>PASOS A SEGUIR</b></p>
+        <p>
+            1.Crea un proyecto en Firebase
+        </p>
+        <p>
+            2.Ejecuta los siguientes comandos en la terminal de VScode:<br>
+            -npm install -g npm@latest<br>
+            -npm install -g npm@latest<br>
+            -npm install -g npm@latest<br>
+        </p>
+        <p>
+            3.Crea una carpeta en tu computadora
+        </p>
+        <p>
+            4.Iniciamos sesión, en la terinal escribe: <br>
+            -firebase login<br>
+            -Ingresa tu cuenta de google con la que creatse el proyecto en Firebase al inicio<br>
+        </p>
+   
+
+        </div>  
+        <div class="contenido3">
+            <p><b>FIREBASE</b></p>
+            <p>
+                1.En el directorio de la carpeta que creaste coloca este comando en la terminal:<br>
+                firebase init<br>
+            <p>
+                2.Selecciona: RealTime Database Y Hosting<br>
+            </p>
+            <p>
+                3.Selecciona: Use an existing project<br>
+            </p>
+            <p>
+                4.Selecciona: Use an existing project<br>
+            </p>
+            <p>
+                5.Coloca Sí para directorio público<br>
+            </p>
+            <p>
+                6.En el terminal de tu carpeta ejecuta el siguiente comando: "firebase deploy", nos da una url que 
+                sería la de nuestra web <br>
+            </p>
+            <p>7.Para visualizar los datos en firebase, ve a real time database, a la sección de reglas y cambia esos "false" por "true" </p>
+        
+
+        </div>  
+        <div class="piedepaginaultra">
+        <p><b>CÓDIGO ATRDUINO</b></p>
+        <p>#include <Arduino.h>
+            #if defined(ESP32) || defined(ARDUINO_RASPBERRY_PI_PICO_W)
+            #include <WiFi.h>
+            #elif defined(ESP8266)
+            #include <ESP8266WiFi.h>
+            #endif
+            
+            #include <FirebaseClient.h>
+            #include <WiFiClientSecure.h>
+            #include <DHT.h>
+            
+            #define WIFI_SSID "SSID DE TU RED"
+            #define WIFI_PASSWORD "CONTRASEÑA DE TU RED"
+            
+            #define DATABASE_URL "TU URL DEL PROYECTO"
+            
+            #define DHTPIN 4
+            #define DHTTYPE DHT11
+            
+            WiFiClientSecure ssl;
+            DefaultNetwork network;
+            AsyncClientClass client(ssl, getNetwork(network));
+            
+            FirebaseApp app;
+            RealtimeDatabase Database;
+            AsyncResult result;
+            NoAuth noAuth;
+            
+            DHT dht(DHTPIN, DHTTYPE);
+            float sendDataPrevMillis=0;
+            void printError(int code, const String &msg)
+            {
+                Firebase.printf("Error, msg: %s, code: %d\n", msg.c_str(), code);
+            }
+            
+            void setup()
+            {
+                Serial.begin(115200);
+                WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+            
+                Serial.print("Connecting to Wi-Fi");
+                while (WiFi.status() != WL_CONNECTED)
+                {
+                    Serial.print(".");
+                    delay(300);
+                }
+                Serial.println();
+                Serial.print("Connected with IP: ");
+                Serial.println(WiFi.localIP());
+                Serial.println();
+            
+                Firebase.printf("Firebase Client v%s\n", FIREBASE_CLIENT_VERSION);
+            
+                ssl.setInsecure();
+            #if defined(ESP8266)
+                ssl.setBufferSizes(1024, 1024);
+            #endif
+            
+                // Initialize the authentication handler.
+                initializeApp(client, app, getAuth(noAuth));
+            
+                // Binding the authentication handler with your Database class object.
+                app.getApp<RealtimeDatabase>(Database);
+            
+                // Set your database URL
+                Database.url(DATABASE_URL);
+            
+                // In sync functions, we have to set the operating result for the client that works with the function.
+                client.setAsyncResult(result);
+            
+                // Initialize the DHT sensor
+                dht.begin();
+            }
+            
+            void loop()
+            {
+                if (millis() - sendDataPrevMillis > 15000 || sendDataPrevMillis == 0)
+                {
+                    sendDataPrevMillis = millis();
+                    
+                    float temperature = dht.readTemperature();
+                    float humidity = dht.readHumidity();
+                    
+                    if (isnan(temperature) || isnan(humidity)) {
+                        Serial.println("Failed to read from DHT sensor!");
+                        return;
+                    }
+            
+                    // Send temperature data to Firebase
+                    Serial.printf("Sending Temperature: %.2f°C\n", temperature);
+                    bool status = Database.set<float>(client, "/sensor/temperature", temperature);
+                    if (status)
+                        Serial.println("Temperature data sent to Firebase");
+                    else
+                        printError(client.lastError().code(), client.lastError().message());
+            
+                    // Send humidity data to Firebase
+                    Serial.printf("Sending Humidity: %.2f%%\n", humidity);
+                    status = Database.set<float>(client, "/sensor/humidity", humidity);
+                    if (status)
+                        Serial.println("Humidity data sent to Firebase");
+                    else
+                        printError(client.lastError().code(), client.lastError().message());
+                }
+            }
+        </p>
+       
+
+        </div>
+        <footer class="openVC">
+            ❤️❤️❤️
+      
+        </footer>
+    </div> 
+
+        
+
+
+
+
+    </p>
+</body>
+</html>

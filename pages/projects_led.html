@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All About Me</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            
+                <li class="logo"><a href="../index.html">All About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    
+    
+    
+    <section class="panels-section">
+        <div class="panel"><a href="history.html">Historia</a></div>
+        <div class="panel"><a href="recomendaciones.html">Recomendaciones</a></div>
+        <div class="panel"><a href="photos.html">Photos</a></div>
+        <div class="panel"><a href="projects.html">Projects</a></div>
+        <div class="panel"><a href="Favorities.html">Favoritos</a></div>
+    </section>
+
+    
+    <div class="contenVC">
+        <div class="barra">
+            <h1 class="titulo1H">All About Me - Blog</h1>
+            <h2 class="titulo2H">Un poco sobre mis miniproyectos</h2>
+        </div>
+
+        <div class="centro">
+            <br>
+            <p><b>APRENDIENDO MÁS SOBRE LED´S</b></p>
+            <p> Este capítulo es más sencillo, y solo aprendermos sobre 
+                como conectar un led correctamente, adicionalmente adjuntaré un código para que puedas
+                ir familiarizandote sobre como colocarlo en tu código, cuando lo necesites en algún 
+                proyecto.
+            </p>
+        </div>
+        <div class="slidebar">
+            <br>
+            <br>
+            <b><li></li><a href="projects.html">PROYECTOS Y TUTORIALES</a></li></b>
+            <br><br><br>
+         <ul class="project-links">
+            <p><li><a href="projects_nube.html">Como subir datos a la nube</a></li></p><br>
+            <p><li><a href="projects_ultrasonico.html">Como usar un sensor ultrasónico</a></li></p><br>
+            <p><li><a href="projects_irrigacion.html">Sistema de irrigación</a></li></p><br>
+            <p><li><a href="projects_led.html">Aprendiendo más sobre leds</a></li></p><br>
+            <p><li><a href="projects_openVC.html">Descubriendo el mundo de openVC</a></li></p><br>
+            
+            
+        </ul>
+    
+
+        </div>  
+        <div class="contenido1">
+            <p><b>MATERIALES</b></p> 
+            <p>
+            -LEDS<br>
+            -Jumpers<br>
+            -Resistencias<br>
+            -ESP32<br>
+            -Protoboard<br>
+
+            </p>
+
+        </div>  
+        <div class="contenido2">
+            <p><b>RECURSOS</b></p> 
+            <p>
+            -Usaremos arduino IDE
+            </p>
+            <p><b>CONEXIONES</b></p> 
+            <p>
+            -Los leds estarán conectados al pin,32,33,25 y 26.<br>
+            -Conecta el otro extremo del led a una resistencia, asimismo, la resistencia
+            conectada a tierra.
+            </p>
+
+        </div>  
+        <div class="contenido3">
+            <p><b>RESULTADO</b></p> 
+            <p>
+                <img src="../images/leds.jpg" class="img-small">
+            </p>
+
+        </div>  
+        <div class="piedepagina">
+            <p><b>CÓDIGO</b></p> 
+            <p>
+                void setup()
+                {
+                pinMode(32, OUTPUT);
+                pinMode(33, OUTPUT);
+                pinMode(25, OUTPUT);
+                pinMode(26, OUTPUT);
+                }
+                
+                void loop()
+                {
+                digitalWrite(32, HIGH);
+                digitalWrite(33, HIGH);
+                digitalWrite(25, HIGH);
+                digitalWrite(26, HIGH);
+                delay(1000); 
+                digitalWrite(32, LOW);
+                digitalWrite(33, LOW);
+                digitalWrite(25, LOW);
+                digitalWrite(26, LOW); 
+                delay(1000); 
+                }
+            </p>
+
+        </div> 
+        <footer class="openVC">
+            ❤️❤️❤️
+      
+        </footer>
+  
+    </div> 
+
+       
+
+
+
+    </p>
+</body>
+</html>

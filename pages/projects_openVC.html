@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All About Me</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            
+                <li class="logo"><a href="../index.html">All About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    
+    
+    
+    <section class="panels-section">
+        <div class="panel"><a href="history.html">Historia</a></div>
+        <div class="panel"><a href="recomendaciones.html">Recomendaciones</a></div>
+        <div class="panel"><a href="photos.html">Photos</a></div>
+        <div class="panel"><a href="projects.html">Projects</a></div>
+        <div class="panel"><a href="Favorities.html">Favoritos</a></div>
+    </section>
+
+    
+    <div class="contenVC">
+        <div class="barra">
+            <h1 class="titulo1H">All About Me - Blog</h1>
+            <h2 class="titulo2H">Un poco sobre mis miniproyectos</h2>
+        </div>
+
+        <div class="centro">
+            <br>
+            <p><b>DESCUBRIENDO EL MUNDO DE OPENVC</b></p>
+            <p>Un día conversando con mi papá, y como gran fanaticos que somos de rapidos y furiosos, conversamos 
+            sobre que tan viable sería hacer un "ojo de Dios", si no has visto las películas, es un programa que hackea camarás 
+            y es capaz de reconocer a personas en culaquier lugar; esto me llevo a investigar como podía aprender 
+            más sobre esto para tratar de entender el funcionamiento, y asi termine entrando sin querer queriendo al mundo
+            del open VC; y es que es así siempre la curiosidad es la que te hace aprender nuevas cosas, no soy una experta claro esta, no he tomado cursos; sin embargo, tras horas
+            de navegar en internet es incríble las cosas que una puede aprender. Acá te tengo el programa
+            con camara en vivo.</p>
+
+        </div>
+        <div class="slidebar">
+            <br>
+            <br>
+            <b><li></li><a href="projects.html">PROYECTOS Y TUTORIALES</a></li></b>
+            <br><br><br>
+         <ul class="project-links">
+            <p><li><a href="projects_nube.html">Como subir datos a la nube</a></li></p><br>
+            <p><li><a href="projects_ultrasonico.html">Como usar un sensor ultrasónico</a></li></p><br>
+            <p><li><a href="projects_irrigacion.html">Sistema de irrigación</a></li></p><br>
+            <p><li><a href="projects_led.html">Aprendiendo más sobre leds</a></li></p><br>
+            <p><li><a href="projects_openVC.html">Descubriendo el mundo de openVC</a></li></p><br>
+            
+            
+        </ul>
+    
+
+        </div>  
+        <div class="contenido1">
+            <p><b>RECOMENDACIONES</b></p> 
+            <p>
+                Bueno yo ejecute todos mis programas con el VScode, te recomendaría
+                hacerlo de la misma forma. Cuando veas yolov5, significa que usamos la versión de yolo 5, yolo es 
+                un modelo de IA entrenado para detectar distintos objetos. yolov5s, significa la versión small, 
+                con yolov5m, la versión medium y con yolov5L la versión large. Si quieres cerrar la ventana emergente
+                que te saldrá, presiona "q" como lo ves en el código, puedes modificarlo si gustas.
+            </p>
+
+       
+        </div>  
+        <div class="contenido2">
+            <p><b>RECURSOS</b></p> 
+            <p>
+            Usaremos como guía los repositorios de github:</p>
+            <p><a href="https://github.com/Kent-Taylor/object-detection/blob/main/main.py"target="blank">https://github.com/Kent-Taylor/object-detection/blob/main/main.py</a>
+        
+            </p><br>
+            <b>LIBRERÍAS A INSTALAR</b></p> 
+            <p>
+             Estas son las librerías que instale, en tu terminal ejecuta los siguientes
+             comandos:<br>
+             -pip install torch <br>
+             -pip install --upgrade pip <br>
+             -pip install cvlib<br>
+             -pip install opencv-python<br>
+             -pip install matplotlib<br>
+            </p>
+
+
+        </div>  
+        <div class="contenido3">
+            <p><b>RESULTADO<br></b></p>
+            <p><img src="../images/resultadopencv.jpg" class="img-small"></p>
+        </div>  
+        <div class="piedepagina">
+            <p><b>CÓDIGO</b></p> 
+            <p>
+                import torch
+                import cv2
+                from matplotlib import pyplot as plt
+                
+        
+                model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+                
+    
+                video = cv2.VideoCapture(0)
+                
+                while True:
+                    ret, frame = video.read()
+                
+                   results = model(frame)
+                
+                    
+                    bbox = results.xyxy[0].cpu().numpy() 
+                    labels = results.names
+                
+    
+                    for box in bbox:
+                        x1, y1, x2, y2, conf, cls = box
+                        label = labels[int(cls)]
+                        frame = cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)<br>
+                        frame = cv2.putText(frame, f"{label} {conf:.2f}", (int(x1), int(y1)-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)<br>
+                
+                  
+                    cv2.imshow("Object detection", frame)
+                    if cv2.waitKey(1) & 0xFF == ord('q'):
+                        break
+                
+                video.release()
+                cv2.destroyAllWindows()
+            </p>
+            <br>
+
+        </div>
+        <footer class="openVC">
+            ❤️❤️❤️
+        </footer>   
+    </div> 
+
+    
+        
+    
+
+
+
+    </p>
+</body>
+</html>

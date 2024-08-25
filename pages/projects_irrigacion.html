@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All About Me</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            
+                <li class="logo"><a href="../index.html">All About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    
+    
+    
+    <section class="panels-section">
+        <div class="panel"><a href="history.html">Historia</a></div>
+        <div class="panel"><a href="recomendaciones.html">Recomendaciones</a></div>
+        <div class="panel"><a href="photos.html">Photos</a></div>
+        <div class="panel"><a href="projects.html">Projects</a></div>
+        <div class="panel"><a href="Favorities.html">Favoritos</a></div>
+    </section>
+
+    
+    <div class="contenultra">
+        <div class="barra">
+            <h1 class="titulo1H">All About Me - Blog</h1>
+            <h2 class="titulo2H">Un poco sobre mis miniproyectos</h2>
+        </div>
+
+        <div class="centro">
+            <br>
+        <p><b>SISTEMA DE IRRIGACIÓN</b></p>
+        <p>Nunca he sido amiga de las plantas, no soy buena para cuidarlas, más que todo no las
+            riego, es por eso que se me ocurrió un riego automático sin tener que estar pendiente de ella.
+            Básicamente lo que haremos será crear un sistema de riego automtizado. Como adición le agregaremos un chatbot
+            de telegram, este nos dirá cuando emepiece y deje de regar, además también nos da la humedad si
+            es que así lo cosnultamos. Este ha sido mi proyecto favorito, planeo ir agregandole más cosas
+            iré actualizando por aquí. Recuerda siempre revisar el pintout de la placa que estes usando.
+        </p>
+        </div>
+        <div class="slidebar">
+            <br>
+            <br>
+            <b><li></li><a href="projects.html">PROYECTOS Y TUTORIALES</a></li></b>
+            <br><br><br>
+         <ul class="project-links">
+            <p><li><a href="projects_nube.html">Como subir datos a la nube</a></li></p><br>
+            <p><li><a href="projects_ultrasonico.html">Como usar un sensor ultrasónico</a></li></p><br>
+            <p><li><a href="projects_irrigacion.html">Sistema de irrigación</a></li></p><br>
+            <p><li><a href="projects_led.html">Aprendiendo más sobre leds</a></li></p><br>
+            <p><li><a href="projects_openVC.html">Descubriendo el mundo de openVC</a></li></p><br>
+            
+            
+        </ul>
+    
+
+        </div>  
+        <div class="contenido1">
+        
+        <p><b>MATERIALES</b></p>
+        <p>-ESP 32<br>
+        -Bomba de agua<br> 
+        -Fuente <br>
+        -L298N (control de potencia del motor)<br>
+        -Sensor de tierra<br>
+        -Planta<br>
+        -Manguera <br>
+        -Jumpers <br>
+        </p>
+        </div>  
+        <div class="contenido2">
+        <p><b>RECURSOS</b></p> 
+        <p>
+        Usaremos github y sus librerías para usar el telegram. Asdimismo una guía de como crear un bot
+        Aquí te dejo el link:<br>
+        <p><a href="https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot"target="blank">https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot</a>
+        </p>
+        <p><a href="https://www.330ohms.com/blogs/blog/crea-tu-propio-bot-de-telegram-con-esp32"target="blank">https://www.330ohms.com/blogs/blog/crea-tu-propio-bot-de-telegram-con-esp32</a>
+        </p>
+        
+      </p>
+      
+        
+        </div>  
+        <div class="contenido3">
+        <p><b>CONEXIONES</b></p> 
+        <p>
+        -El sensor de tierra al pin 34<br>
+        -El ENA del l298N al pin 14<br>
+        -El IN1 del l298N al pin 27<br>
+        -El IN2 del l298N al pin 26<br>
+        -Conecta los out1 y out2 a la bomba de agua (no importa el orden)<br>
+        -Conecta en +12v del L2798N, el positivo de tu fuente y a ground el negativo, asimismo, conecta un jumper del 
+        GND de la ESP32 al del L2798N.<br>
+        </p>
+        <p>
+          Algo así: <br><br>
+          <img src="../images/modelo.jpg" class="imagen-pequeña">
+        </p>
+
+        </div> 
+        <div class="piedepaginaultra">
+            <p><b>CÓDIGO</b></p> 
+            <p>#include <WiFi.h>
+                #include <WiFiClientSecure.h>
+                #include <UniversalTelegramBot.h>
+                #include <ArduinoJson.h>
+                
+                #define soil 34
+                
+                const char* SSID = "SSID"; 
+                const char* password = "contraseña";
+                #define BOTtoken "tu token" 
+                #define CHAT_ID "ID"
+                
+                WiFiClientSecure client;
+                UniversalTelegramBot bot(BOTtoken, client);
+                
+                int sensor;
+                int motor1pin1 = 27;
+                int motor1pin2 = 26;
+                int motor1speed = 14;
+                bool isWatering = false;
+                
+                void handleNewMessages(int numNewMessages) {
+                  for(int i = 0; i < numNewMessages; i++) {
+                    String chat_id = String(bot.messages[i].chat_id);
+                    if(chat_id != CHAT_ID) {
+                      bot.sendMessage(chat_id, "Usuario no autorizado", "");
+                      continue;
+                    }
+                    String text = bot.messages[i].text;
+                    
+                    if(text == "/agua") {
+                      bot.sendMessage(chat_id, "Regando", "");
+                      digitalWrite(motor1pin1, HIGH);
+                      digitalWrite(motor1pin2, LOW);
+                      analogWrite(motor1speed, 250);
+                      delay(500);
+                      analogWrite(motor1speed, 0);
+                      isWatering = true;
+                    }
+                    else if(text == "/status") {
+                      String statusMessage = isWatering ? "La bomba está regando." : "La bomba no está regando.";
+                      bot.sendMessage(chat_id, statusMessage, "");
+                    }
+                    else if(text == "/stop") {
+                      if(isWatering) {
+                        digitalWrite(motor1pin1, LOW);
+                        digitalWrite(motor1pin2, LOW);
+                        analogWrite(motor1speed, 0);
+                        isWatering = false;
+                        bot.sendMessage(chat_id, "La bomba ha sido detenida manualmente.", "");
+                      } else {
+                        bot.sendMessage(chat_id, "La bomba ya está detenida.", "");
+                      }
+                    }
+                    else if(text == "/humedad") {
+                      String humedadMessage = "El nivel de humedad actual es: " + String(sensor) + "%";
+                      bot.sendMessage(chat_id, humedadMessage, "");
+                    }
+                  }
+                }
+                
+                void setup() {
+                  Serial.begin(9600);
+                
+                  // Conectar a WiFi
+                  Serial.print("Conectando a: ");
+                  Serial.println(SSID);
+                  WiFi.begin(SSID, password);
+                  client.setCACert(TELEGRAM_CERTIFICATE_ROOT);
+                
+                  while(WiFi.status() != WL_CONNECTED) {
+                    delay(500);
+                    Serial.print(".");
+                  }
+                  Serial.println("");
+                  Serial.println("WiFi conectado.");
+                  Serial.println("IP address: ");
+                  Serial.println(WiFi.localIP());
+                
+                  pinMode(motor1pin1, OUTPUT);
+                  pinMode(motor1pin2, OUTPUT);
+                  pinMode(motor1speed, OUTPUT);
+                
+                  bot.sendMessage(CHAT_ID, "Bot iniciado", "");
+                }
+                
+                void loop() {
+                  sensor = analogRead(soil);
+                  sensor = map(sensor, 4095, 886, 0, 100);
+                  Serial.println(String("Nivel de humedad: ") + sensor + "%");
+                  delay(500);
+                
+                  int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+                  while(numNewMessages) {
+                    handleNewMessages(numNewMessages);
+                    numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+                  }
+                
+                  if(sensor <= 70 && !isWatering) {
+                    digitalWrite(motor1pin1, HIGH);
+                    digitalWrite(motor1pin2, LOW);
+                    analogWrite(motor1speed, 250);
+                    isWatering = true;
+                    bot.sendMessage(CHAT_ID, "Comenzando a regar", "");
+                  } 
+                  else if(sensor > 70 && isWatering) {
+                    digitalWrite(motor1pin1, LOW);
+                    digitalWrite(motor1pin2, LOW);
+                    analogWrite(motor1speed, 0);
+                    isWatering = false;
+                    bot.sendMessage(CHAT_ID, "Dejando de regar", "");
+                  }
+                }
+                
+                
+                
+                </p> 
+        
+        </div> 
+        
+        <footer class="openVC">
+          ❤️❤️❤️
+      </footer>   
+        </div>   
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All About Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="logo"><a href="index.html">All About Me</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="main-container">
+        <div class="container">
+            <div class="side-box left-box">
+                <h1>Hola!<br>Bienvenid@</h1>
+            </div>
+            <div class="slider-frame">
+                <div class="slide-images">
+                    <div class="img-container">
+                        <img src="images/imagen1.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen2.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen3.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen4.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen5.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen6.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen7.jpg">
+                    </div>
+                    <div class="img-container">
+                        <img src="images/imagen8.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h1>Mi primera <br> página web</h1>
+            </div>
+        </div>
+        
+    </div>
+
+
+    
+    
+
+
+
+
+<br>
+    <br>
+
+
+    <section class="panels-section">
+        <div class="panel"><a href="pages/history.html">Historia</a></div>
+        <div class="panel"><a href="pages/recomendaciones.html">Recomendaciones</a></div>
+        <div class="panel"><a href="pages/photos.html">Photos</a></div>
+        <div class="panel"><a href="pages/projects.html">Projects</a></div>
+        <div class="panel"><a href="pages/Favorities.html">Favoritos</a></div>
+    </section>
+
+<div class="wrapper">
+    <article class="main">
+        <p>
+            <b>This is my very first web site, hope you like it </b>
+            <br><br>
+            ¡Hola! Soy Arianna Yauri y estoy muy emocionada de que esta sea mi primera página web. 
+            Fun fact no tomé ningún curso de HTML, fue todo gracias a mi curiosidad,
+            así que si tienes alguna sugerencia eres libre de contactarme, con gusto te leeré o 
+            escucharé
+            <br>
+
+            <p>Ah, y esta fue la canción que estuvo en loop mientras creaba esta web. 
+                Para darle un toque de ambiente
+                baja el volumen si vas a escucharla, está un poco alta.
+            </p><br>
+               
+            <img src="images/play.png" id="icon"> 
+                <audio id="song">
+                    <source src="images/song.mp3" type="audio/mp3">
+                </audio>
+                <script>
+                    var song =document.getElementById("song");
+                    var icon = document.getElementById("icon");
+                    icon.onclick=function(){
+                        if(song.paused){
+                            song.play();
+                            icon.src="images/pause.png";
+                        }else{
+                            song.pause();
+                            icon.src="images/play.png";
+                        }
+                   }
+                </script>
+            <br> 
+            <br>
+            <p>All about me, nación un día en el cuál estaba echada en mi cama viendo tiktoks, 
+                cuando pensé ¿por qué no hacer las vacaciones
+                más productivas y aprendo algo nuevo? Me oriente más a aprender un nuevo lenguaje y decidí
+                por HTML, en el camino aprendí sobre CSS y un poco de java, que es todo lo que use para 
+                desarrollar esta página. Espero te guste, invertí horas pero también me divertí mucho haciendola.
+            </p><br>
+            
+            <img src="images/sc5.jpg" class="img-small">
+            <p>No sean duros si tienen críticas</p>
+            
+         
+            
+        </p>
+    </article>
+    <aside class="aside aside1">
+        <h1>LO QUE ENCONTRARÁS</h1>
+        <br>
+        <p>
+            Te cuento un poco sobre como crecí
+        </p><br>
+        <p>
+
+            Mis top lugares para ir por un café en este invierno
+        </p><br>
+        <p>
+            
+            Un vistazo a fotos inéditas
+        </p><br>
+        <p>
+           
+            Todo lo que he aprendido a hacer con mi ESP32 durante este último mes
+        </p><br>
+        <p>
+           
+            Mis cosas favoritas de este mundo
+        </p><br><br><br>
+        <p>
+        <img src="images/arco.GIF" class="imagen-index">
+        </p>
+
+        <br>
+    </aside>
+    <aside class="aside aside2">
+        <h1>FRASES</h1>
+        <br>
+        <p>
+            "Todo lo que pasa es parte del proceso" 
+        </p><br><br>
+        <p>
+            "Puedes más de lo que imaginas"
+        </p><br><br>
+        <p>
+           "No te apegues a lo que te apaga"
+        </p><br><br>
+        <p>
+            "Si no suma que no reste"
+        </p><br><br>
+        <p>
+            "Comienza las veces que sean necesarias"
+        </p><br><br>
+        <p>
+            <img src="images/heart.gif" class="imagen-index1">
+        </p>
+
+    </aside>
+</div>
+
+
+
+
+         <footer>
+            ❤️❤️❤️
+        </footer>
+
+    </p>
+</body>
+
+
+
+
+
+
+
+
+</html>
+
+
