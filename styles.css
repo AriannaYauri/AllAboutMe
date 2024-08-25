@@ -5,7 +5,6 @@ header {
 }
 
 header nav ul {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
@@ -22,12 +21,10 @@ header a {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
-    display: block;
     padding: 10px 0;
 }
 
 header .logo {
-    flex: 1.5; 
     text-align: center;
 }
 
@@ -35,18 +32,11 @@ header .logo a {
     background-image: url("logo.png");
     background-size: 100px;
     background-repeat: no-repeat;
-    display: inline-block;
     height: 80px;
     text-indent: -99999999px;
     width: 100px;
 }
-header a:hover,
-header .logo a:hover {
-    -webkit-transform: scale(1.1); /* Añade prefijo webkit para iOS */
-    -webkit-transition: -webkit-transform 0.3s ease-in-out; /* Añade prefijo webkit para transición */
-    transition: transform 0.3s ease-in-out;
-    transform: scale(1.1);
-}
+
 
         body {
             background: rgb(255, 222, 228);
@@ -166,7 +156,6 @@ header .logo a:hover {
             padding: 20px;
             align-items: row;
             text-align: center;
-            flex-wrap:wrap;
             justify-content:center;
     
         }
