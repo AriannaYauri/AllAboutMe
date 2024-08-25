@@ -168,42 +168,46 @@ header .logo a img {
             max-width:400px;
             max-height: 300px;
         }
-        .panels-section { /* Fondo para los paneles hsitoria recomendaciones */
+
+        .panels-section { 
             background: rgb(230, 172, 202);
             padding: 20px;
             text-align: center;
         }
         
-        .panels-section .containerpanel {
-            max-width: 1200px; /* Ajusta el tamaño del contenedor */
+        .panels-section .containerinicio {
+            max-width: 1200px; /* Ajusta el tamaño máximo del contenedor */
             margin: 0 auto; /* Centra el contenedor */
+            padding: 0 20px; /* Añade espacio lateral si es necesario */
+        }
+        
+        .containerpanel {
             display: flex;
+            flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
         }
         
         .panel {
-            margin: 10px; /* Ajustado para crear espacio entre los paneles */
+            flex: 1;
+            margin: 10px; /* Ajusta el espacio entre paneles */
             padding: 10px;
             background: rgb(255, 222, 228);
             border-radius: 5px;
             text-align: center;
             transition: all 0.3s;
-            width: 200px; /* Ajusta el ancho de los paneles */
-        }
-        
-        .panel a { /* Letra de los enlaces */
-            color: rgb(211, 123, 123);
-            text-decoration: none;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 18px;
         }
         
         .panel:hover {
             transform: translateY(-10px);
         }
         
-
+        .panel a {
+            color: rgb(211, 123, 123);
+            text-decoration: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+        }
 
         * {
             box-sizing: border-box;
