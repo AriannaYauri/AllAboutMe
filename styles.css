@@ -3,9 +3,8 @@ header {
     padding: 20px 0;
 }
 
-
 header nav ul {
-    display: flex;
+    display: flex; /* Añadir display flex */
     justify-content: space-between;
     align-items: center;
     list-style: none;
@@ -29,17 +28,11 @@ header .logo {
     flex: 1.5; 
     text-align: center;
 }
-.imagenlogo{
-    max-width:100px;
-    max-height:80px;
-}
 
-header .logo a {
-    background-size: 100px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 80px;
+header .logo a img {
     width: 100px;
+    height: 80px;
+    object-fit: contain; /* Asegura que la imagen se ajuste bien */
 }
 
 
