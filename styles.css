@@ -1,4 +1,3 @@
-
 header {
     background: hsl(300, 18%, 97%);
     padding: 20px 0;
@@ -22,24 +21,39 @@ header a {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 0;
 }
 
+/* Ajuste para el logo */
 header .logo {
-    flex: 1.5; 
+    flex: 1.5;
     text-align: center;
 }
 
 header .logo a {
-    background-image: url("logo.png");
-    background-size: 100px;
-    background-repeat: no-repeat;
-    display: inline-block;
+    background: url("logo.png") no-repeat center;
+    background-size: contain; /* Asegúrate de que la imagen se ajuste al contenedor */
+    display: block;
     height: 80px;
-    text-indent: -99999999px;
     width: 100px;
+    text-indent: -9999px; /* Oculta el texto para el logo */
+    overflow: hidden; /* Asegúrate de que el texto no se desborde */
 }
+
+/* Opcional: Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column; /* Cambia la dirección del flex en pantallas pequeñas */
+    }
+
+    header .logo {
+        margin-bottom: 10px; /* Espaciado en dispositivos móviles */
+    }
+}
+
 
         body {
             background: rgb(255, 222, 228);
@@ -165,24 +179,7 @@ header .logo a {
     
         }
         
-        /* Estilos para los paneles individuales */
-        .panel {
-            flex: 1;
-            margin: 0 10px;
-            padding: 10px;
-            background: rgb(255, 222, 228);
-            border-radius: 5px;
-            text-align: center;
-            transition: all 0.3s;
-        }
         
-        
-        .panel a { /* letra hsitoria recomendaciomnes */
-            color: rgb(211, 123, 123);
-            text-decoration: none;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 18px;
-        }
 
         .imagen-index{
             max-width:400px;
@@ -198,6 +195,41 @@ header .logo a {
 
         * {
             box-sizing: border-box;
+        }
+        .panels-section {
+            background: rgb(230, 172, 202);
+            padding: 20px;
+            text-align: center;
+            /* Cambiamos el layout para no usar flexbox */
+            overflow: hidden; /* Asegúrate de que los elementos no se desborden */
+        }
+        
+        .panel {
+            display: inline-block; /* Permite que los elementos se alineen horizontalmente */
+            margin: 0 10px;
+            padding: 10px;
+            background: rgb(255, 222, 228);
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s;
+            vertical-align: top; /* Alinea verticalmente los elementos en la fila */
+            width: 200px; /* Ancho fijo para cada panel; ajusta según sea necesario */
+            box-sizing: border-box; /* Incluye el padding en el ancho total del panel */
+        }
+        
+        .panel a {
+            color: rgb(211, 123, 123);
+            text-decoration: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+        }
+        
+        /* Opcional: Ajustes para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .panel {
+                width: calc(100% - 20px); /* Ajusta el ancho para pantallas más pequeñas */
+                margin: 10px 0; /* Ajusta el margen para dispositivos móviles */
+            }
         }
         
 
