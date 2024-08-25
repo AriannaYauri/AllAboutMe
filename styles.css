@@ -170,17 +170,19 @@ header .logo a {
         .panel {
             flex: 1;
             margin: 0 10px;
-            padding: 5px;
+            padding: 10px;
             background: rgb(255, 222, 228);
             border-radius: 5px;
             text-align: center;
+            transition: all 0.3s;
         }
+        
         
         .panel a { /* letra hsitoria recomendaciomnes */
             color: rgb(211, 123, 123);
             text-decoration: none;
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .imagen-index{
