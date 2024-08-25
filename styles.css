@@ -5,7 +5,7 @@ header {
 
 header .containerindex {
     max-width: 1200px; /* Define el tamaño máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor en la página */
+    
    
 }
 
@@ -161,7 +161,7 @@ header .logo a img {
 
         .imagen-index{
             max-width:400px;
-            max-height: 150px;
+            max-height: 100px;
         }
 
         .imagen-index1{
@@ -177,7 +177,7 @@ header .logo a img {
         
         .panels-section .containerinicio {
             max-width: 1200px; /* Ajusta el tamaño máximo del contenedor */
-            margin: 0 auto; /* Centra el contenedor */
+           
              /* Añade espacio lateral si es necesario */
         }
         
@@ -254,7 +254,7 @@ header .logo a img {
         }
 
         /* Media queries para pantallas más pequeñas */
-        @media all and (min-width: 600px) {
+        @media all and (min-width: 800px) {
             .main {
             flex: 4;
             order: 2;
@@ -270,7 +270,7 @@ header .logo a img {
             }
         }
 
-        @media all and (min-width: 600px) {
+        @media all and (min-width: 800px) {
         .aside {
             flex: 1;
             }
