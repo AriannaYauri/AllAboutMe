@@ -131,17 +131,18 @@
 
         </div>  
         <div class="piedepaginaultra">
-        <p><b>CÓDIGO ATRDUINO</b></p>
-        <pre><code>#include <Arduino.h>
+        <p><b>CÓDIGO ARDUINO</b></p>
+        <p>En los include, donde haya "()" reemplazalo por "<>"</p>
+            #include (Arduino.h)
             #if defined(ESP32) || defined(ARDUINO_RASPBERRY_PI_PICO_W)
-            #include <WiFi.h>
+            #include (WiFi.h)
             #elif defined(ESP8266)
-            #include <ESP8266WiFi.h>
+            #include (ESP8266WiFi.h)
             #endif
             
-            #include <FirebaseClient.h>
-            #include <WiFiClientSecure.h>
-            #include <DHT.h>
+            #include (FirebaseClient.h)
+            #include (WiFiClientSecure.h)
+            #include (DHT.h)
             
             #define WIFI_SSID "SSID DE TU RED"
             #define WIFI_PASSWORD "CONTRASEÑA DE TU RED"
