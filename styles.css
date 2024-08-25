@@ -161,7 +161,11 @@ header .logo a img {
 
         .imagen-index{
             max-width:400px;
-            max-height: 100px;
+            max-height: 200px;
+        }
+        .imagen-index3{
+            max-width:200px;
+            max-height: 200px;
         }
 
         .imagen-index1{
