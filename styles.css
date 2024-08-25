@@ -702,7 +702,7 @@ header .logo a img {
         overflow-y: auto; /* Añade barra desplazadora vertical */
         overflow-x: hidden;
         height: auto; /* Ajusta al contenido */
-        min-height: 100px;
+        min-height: 200px;
         
      }
      .piedepagina p, .piedepaginaultra p{
