@@ -6,7 +6,7 @@ header {
 header .containerindex {
     max-width: 1200px; /* Define el tamaño máximo del contenedor */
     margin: 0 auto; /* Centra el contenedor en la página */
-    padding: 0 20px; /* Añade un poco de espacio en los lados */
+   
 }
 
 header nav ul {
@@ -161,12 +161,12 @@ header .logo a img {
 
         .imagen-index{
             max-width:400px;
-            max-height: 200px;
+            max-height: 150px;
         }
 
         .imagen-index1{
             max-width:400px;
-            max-height: 300px;
+            max-height: 400px;
         }
 
         .panels-section { 
@@ -178,7 +178,7 @@ header .logo a img {
         .panels-section .containerinicio {
             max-width: 1200px; /* Ajusta el tamaño máximo del contenedor */
             margin: 0 auto; /* Centra el contenedor */
-            padding: 0 20px; /* Añade espacio lateral si es necesario */
+             /* Añade espacio lateral si es necesario */
         }
         
         .containerpanel {
