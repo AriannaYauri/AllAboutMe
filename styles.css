@@ -182,10 +182,6 @@ header .logo a:hover {
             text-align: center;
             transition: all 0.3s;
         }
-        .panel:hover{
-            -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-        }
         
         .panel a { /* letra hsitoria recomendaciomnes */
             color: rgb(211, 123, 123);
